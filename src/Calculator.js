@@ -36,64 +36,67 @@ function Calculator() {
     };
 
     return (
-        <div className="mb-6 max-w-xs mx-auto p-4">
-            <div className="text-right mb-4">
-                <input
-                    type="text"
-                    className="w-full p-4 text-2xl border rounded-lg text-gray-700"
-                    value={input}
-                    readOnly
-                    aria-label="Calculator Input"
-                />
-            </div>
-            <div className="grid grid-cols-4 gap-4">
-                {["7", "8", "9", "/"].map((item) => (
+        <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-teal-400 via-teal-600 to-teal-800 p-4">
+            <div className="w-full max-w-md bg-white rounded-3xl shadow-lg p-6">
+                <div className="text-right mb-6">
+                    <input
+                        type="text"
+                        className="w-full p-6 text-3xl font-semibold text-gray-800 border-2 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-teal-300 transition-all"
+                        value={input}
+                        readOnly
+                        aria-label="Calculator Input"
+                    />
+                </div>
+
+                <div className="grid grid-cols-4 gap-6">
+                    {["7", "8", "9", "/"].map((item) => (
+                        <button
+                            key={item}
+                            className="p-6 bg-teal-500 text-white rounded-xl shadow-lg hover:bg-teal-600 transition-all transform hover:scale-105"
+                            onClick={() => handleClick(item)}
+                            aria-label={`Input ${item}`}
+                        >
+                            {item}
+                        </button>
+                    ))}
+                    {["4", "5", "6", "*"].map((item) => (
+                        <button
+                            key={item}
+                            className="p-6 bg-teal-500 text-white rounded-xl shadow-lg hover:bg-teal-600 transition-all transform hover:scale-105"
+                            onClick={() => handleClick(item)}
+                            aria-label={`Input ${item}`}
+                        >
+                            {item}
+                        </button>
+                    ))}
+                    {["1", "2", "3", "-"].map((item) => (
+                        <button
+                            key={item}
+                            className="p-6 bg-teal-500 text-white rounded-xl shadow-lg hover:bg-teal-600 transition-all transform hover:scale-105"
+                            onClick={() => handleClick(item)}
+                            aria-label={`Input ${item}`}
+                        >
+                            {item}
+                        </button>
+                    ))}
+                    {["0", ".", "=", "+"].map((item) => (
+                        <button
+                            key={item}
+                            className="p-6 bg-teal-500 text-white rounded-xl shadow-lg hover:bg-teal-600 transition-all transform hover:scale-105"
+                            onClick={() => item === "=" ? handleCalculate() : handleClick(item)}
+                            aria-label={item === "=" ? "Calculate" : `Input ${item}`}
+                        >
+                            {item}
+                        </button>
+                    ))}
                     <button
-                        key={item}
-                        className="p-4 bg-teal-500 text-white rounded-lg hover:bg-teal-600"
-                        onClick={() => handleClick(item)}
-                        aria-label={`Input ${item}`}
+                        className="col-span-4 p-6 bg-red-500 text-white rounded-xl shadow-lg hover:bg-red-600 transition-all transform hover:scale-105"
+                        onClick={handleReset}
+                        aria-label="Clear Input"
                     >
-                        {item}
+                        Clear
                     </button>
-                ))}
-                {["4", "5", "6", "*"].map((item) => (
-                    <button
-                        key={item}
-                        className="p-4 bg-teal-500 text-white rounded-lg hover:bg-teal-600"
-                        onClick={() => handleClick(item)}
-                        aria-label={`Input ${item}`}
-                    >
-                        {item}
-                    </button>
-                ))}
-                {["1", "2", "3", "-"].map((item) => (
-                    <button
-                        key={item}
-                        className="p-4 bg-teal-500 text-white rounded-lg hover:bg-teal-600"
-                        onClick={() => handleClick(item)}
-                        aria-label={`Input ${item}`}
-                    >
-                        {item}
-                    </button>
-                ))}
-                {["0", ".", "=", "+"].map((item) => (
-                    <button
-                        key={item}
-                        className="p-4 bg-teal-500 text-white rounded-lg hover:bg-teal-600"
-                        onClick={() => item === "=" ? handleCalculate() : handleClick(item)}
-                        aria-label={item === "=" ? "Calculate" : `Input ${item}`}
-                    >
-                        {item}
-                    </button>
-                ))}
-                <button
-                    className="col-span-4 p-4 bg-red-500 text-white rounded-lg hover:bg-red-600"
-                    onClick={handleReset}
-                    aria-label="Clear Input"
-                >
-                    Clear
-                </button>
+                </div>
             </div>
         </div>
     );
