@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Calculator from './Calculator';
+import Counter from './Counter';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-500 to-teal-400">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <h1 className="text-3xl text-center font-bold mb-6 text-teal-600">React Calculator & Counter</h1>
+        <Calculator />
+        <Counter />
+      </div>
     </div>
   );
 }
